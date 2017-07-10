@@ -1,0 +1,88 @@
+/*交流大会*/
+.comunication_nav{
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+.comunication_nav > a{
+    padding: 0 0.85rem;
+    font-size: 0.7rem;
+    color: #fff;
+    border-right: 1px #51555d solid;
+}
+.comunication_nav > a.last-a{
+    border-right: 0;
+}
+.comunication_nav > a.colorblue {
+    color: #1199fb;
+}
+.instruction_wrap{
+    padding: 0 1rem;
+}
+.comunication_content{
+    margin-bottom: 3rem;
+}
+.comunication_text{
+    font-size: 0.7rem;
+    color: #fff;
+    line-height: 1.2rem;
+    opacity: .8;
+    padding-bottom: 0.7rem;
+}
+section .content_pic{
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.review_title{
+    font-size: 0.7rem;
+    text-align: center;
+    color: #fdb60e;
+    margin-bottom: 0.8rem;
+    padding-top: 1rem;
+}
+.history{
+    padding: 0 1rem ;
+}
+.history:nth-child(2n){
+    background-color: #252a34;
+}
+
+.comunication_foot{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+}
+.comunication_foot .footer_btn{
+    float: left;
+    display: block;
+    width: 50%;
+    height: 100%;
+    border: none;
+    color: white;
+    font-size: 0.7rem;
+}
+footer button.baoming{
+    background-color: #2876b2;
+}
+footer button.toupiao{
+    background-color: #fdb60e;
+}
+.video_tip{
+    margin-bottom: 1rem;
+}
+.video_tip img{
+    width: .8rem;
+    vertical-align: middle;
+}
+.video_tip span{
+    font-size: .7rem;
+    color: #ffffff;
+    opacity: 0.8;
+    display: inline-block;
+    margin-left: .5rem;
+}
