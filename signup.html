@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>填写资料</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/baoming.css" />
+    <link rel="stylesheet" href="css/allcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/wheel.css" />
+
+</head>
+<body>
+    <!--弹出框 成功-->
+    <div class="dialog-container success hide">
+        <div class="dialog-window">
+            <div class="dialog-header">
+                <img src="imgs/mxr-imgs/OK.png">
+            </div>
+            <div class="dialog-content">报名成功</div>
+            <div class="dialog-footer">
+                <button class="win_btn">确认</button>
+            </div>
+        </div>
+
+    </div>
+    <!--弹出框 失败-->
+    <div class="dialog-container fail hide">
+        <div class="dialog-window">
+            <div class="dialog-header">
+                <img src="imgs/mxr-imgs/fail.png">
+            </div>
+            <div class="dialog-content">报名失败</div>
+            <div class="dialog-footer">
+                <button class="fail_btn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <form id="frm_sighup">
+        <div class="baoming_info_bg">
+            <div class="baoming_box">
+                <div  class="info_box">
+                    <p class="login_title"><span class="need">*</span>姓名</p>
+                    <input class="login_input" type="text" id="name" name="sname" placeholder="请输入您的姓名" />
+                    <span class="tip" id="name_tip"></span>
+                </div>
+                <div>
+                    <p class="login_title"><span class="need">*</span>性别</p>
+                    <select class="login_input" name="ssex">
+                        <option name="sex" value="0" checked>男</option>
+                        <option name="sex" value="1">女</option>
+                    </select>
+                </div>
+                <div class="info_box">
+                    <p class="login_title"><span class="need">*</span>联系方式</p>
+                    <input class="login_input" id="phone" type="number" name="sphone" placeholder="请输入您的手机号码" />
+                    <span class="tip" id="phone_tip"></span>
+
+                </div>
+                <div>
+                    <p class="login_title"><span class="notneed">*</span>工作单位</p>
+                    <input class="login_input" type="text" name="scompany" placeholder="请输入您的工作单位" />
+                </div>
+                <div class="info_box">
+                    <p class="login_title"><span class="need">*</span>身份证号</p>
+                    <input class="login_input" id="IDcard" type="text" name="sidcard" placeholder="请输入您的身份证号码" />
+                    <span class="tip" id="IDcard_tip"></span>
+                </div>
+                <div class="info_box">
+                    <p class="login_title"><span class="need">*</span>国职证书编号</p>
+                    <input class="login_input" type="text" id="gzbh" name="szsno" placeholder="请输入您的国职证书编号" />
+                    <span class="tip" id="gzbh_tip"></span>
+                </div>
+                <p class="login_title"><span class="notneed">*</span>个人照片</p>
+                <div id="imageList">
+                    <div class="z_file">
+                        <input name="Filedata" type="file" id="uploadFile" multiple="multiple" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="baoming_btn2">
+                <input type="button" id="baoming_btn" value="立即报名" />
+            </div>
+        </div>
+    </form>
+
+</body>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/imgPreview.js"></script>
+<script src="js/lib/jquery.form.min.js"></script>
+<script type="text/javascript">
+    /* 动态换算rem和px值  */
+    var rem = 20;
+    window.onload = function () {
+        changeW();
+        window.addEventListener("resize", changeW, false);
+        function changeW() {
+            rem = 20 / 375 * document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = rem + "px";
+        }
+        window.addEventListener("resize", changeW, false);
+    }
+    $("#phone,#IDcard,#name,#gzbh").focus(function () {
+        $('.tip').text('');
+    });
+    //	 上传头像
+    $("#uploadFile").change(function () {
+        $(".z_file").hide();
+        var imgFile = $("#uploadFile")[0];
+        var imgParent = $("#imageList");
+
+        imgPreview.previewImage({
+            imgFile: imgFile,
+            callback: function (cfx) {
+                var elem = null;
+                imgParent.append("<img  src='" + cfx.data + "' style='display: inline-block;width:5rem;height:5rem;'/>");
+
+            }
+        });
+
+    });
+    $('#baoming_btn').click(function () {
+        var namestr = $('#name').val().trim();
+        var gzbh = $('#gzbh').val().trim();
+        if (namestr == "") {
+            $('#name_tip').text('姓名不能为空！');
+            return false;
+        }  else if (!checkMobile()) {
+            $('#phone_tip').text('手机号码有误！');
+            return false;
+
+        } else if (!isCard()) {
+            $('#IDcard_tip').text('身份证号码不合法！');
+            return false;
+        } else if (gzbh == "") {
+            $('#gzbh_tip').text("国职证书编号不能为空!");
+            return false;
+        }
+
+        $("#frm_sighup").ajaxSubmit({
+            url: "/Action/OtherHandler.ashx",
+            type: "POST",
+            async: false,
+            data: { "action": "signup" },
+            dataType: "json",
+            success: function (result) {
+                if (result.Msg) {
+                    $(".success").removeClass('hide')
+//                    $(".bground").css("display", "block");
+//                    $(".noreplay-model01").find('.word_01').text(result.Msg);
+                }
+            },
+            error: function (info) {
+                $(".fail").removeClass('hide')
+            }
+        });
+    });
+
+    $(".win-button1").on("click", function () {
+        $(".bground").css("display", "none");
+        $(".noreplay-model01").css("display", "none");
+        window.location.href = "Default.aspx";
+    });
+
+    function checkMobile() {
+        var sMobile = $("#phone").val()
+        if (!(/^(((1[0-9]{1}[0-9]{1}))+\d{8})$/.test(sMobile))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function isCard() {
+        var num = $("#IDcard").val()
+        num = num.toUpperCase();
+        if (!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(num))) {
+            return false;
+        }
+        // 校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+        // 下面分别分析出生日期和校验位
+        var len = num.length, re;
+        if (len == 15) {
+            re = new RegExp(/^(\d{6})(\d{2})(\d{2})(\d{2})(\d{3})$/);
+            var arrSplit = num.match(re);  // 检查生日日期是否正确
+            var dtmBirth = new Date('19' + arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4]);
+            var bGoodDay; bGoodDay = (dtmBirth.getYear() == Number(arrSplit[2])) && ((dtmBirth.getMonth() + 1) == Number(arrSplit[3])) && (dtmBirth.getDate() == Number(arrSplit[4]));
+            if (!bGoodDay) {
+                return false;
+            } else { // 将15位身份证转成18位 //校验位按照ISO 7064:1983.MOD
+                // 11-2的规定生成，X可以认为是数字10。
+                var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+                var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+                var nTemp = 0, i;
+                num = num.substr(0, 6) + '19' + num.substr(6, num.length - 6);
+                for (i = 0; i < 17; i++) {
+                    nTemp += num.substr(i, 1) * arrInt[i];
+                }
+                num += arrCh[nTemp % 11];
+                return true;
+            }
+        }
+        if (len == 18) {
+            re = new RegExp(/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/);
+            var arrSplit = num.match(re);  // 检查生日日期是否正确
+            var dtmBirth = new Date(arrSplit[2] + "/" + arrSplit[3] + "/" + arrSplit[4]);
+            var bGoodDay; bGoodDay = (dtmBirth.getFullYear() == Number(arrSplit[2])) && ((dtmBirth.getMonth() + 1) == Number(arrSplit[3])) && (dtmBirth.getDate() == Number(arrSplit[4]));
+            if (!bGoodDay) {
+                return false;
+            }
+            else { // 检验18位身份证的校验码是否正确。 //校验位按照ISO 7064:1983.MOD
+                // 11-2的规定生成，X可以认为是数字10。
+                var valnum;
+                var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+                var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+                var nTemp = 0, i;
+                for (i = 0; i < 17; i++) {
+                    nTemp += num.substr(i, 1) * arrInt[i];
+                }
+                valnum = arrCh[nTemp % 11];
+                if (valnum != num.substr(17, 1)) {
+                    return false;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
+
+</html>

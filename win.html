@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>体育秀</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	    <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="email=no">
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/allcss.css"  />
+        <script type="text/javascript" src="js/lib/jquery.min.js" ></script>
+	</head>
+	<body>
+		<!--<header>
+			体育秀
+		</header>-->
+		<div class="win-box">
+			<div class="win-bg"></div>
+			<div class="win-list01">
+				<div>
+				<div class="win-list-left"></div>
+				<div class="win-list-center">
+					<h4>第4期</h4>
+					<p>2016-09-01</p>
+				</div>
+				<div class="win-list-right"></div>
+				</div>
+				<ul>
+					<li>
+					  <img src="imgs/avatar01.png" class="win-img-left" />
+					  <p>恭喜<b>sir_martino</b>获得</p>
+					  <h6>小米手环</h6>
+					  <div style="background:url(imgs/xiaomi01.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar02.png" class="win-img-left" />
+					  <p>恭喜<b>呆呆瓜。</b>获得</p>
+					  <h6>小米手机</h6>
+					  <div style="background:url(imgs/xiaomi4c.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar03.png" class="win-img-left" />
+					  <p>恭喜<b>李国荣</b>获得</p>
+					  <h6>苹果ipad</h6>
+					  <div style="background:url(imgs/pad.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/pic-a.png" class="win-img-left" />
+					  <p>恭喜<b>sir_martino</b>获得</p>
+					  <h6>小米手环</h6>
+					  <div style="background:url(imgs/xiaomi01.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar02.png" class="win-img-left" />
+					  <p>恭喜<b>呆呆瓜。</b>获得</p>
+					  <h6>小米手机</h6>
+					  <div style="background:url(imgs/xiaomi4c.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="win-list01">
+				<div>
+				<div class="win-list-left"></div>
+				<div class="win-list-center">
+					<h4>第3期</h4>
+					<p>2016-08-25</p>
+				</div>
+				<div class="win-list-right"></div>
+				</div>
+				<ul>
+					<li>
+					  <img src="imgs/avatar01.png" class="win-img-left" />
+					  <p>恭喜<b>sir_martino</b>获得</p>
+					  <h6>小米手环</h6>
+					  <div style="background:url(imgs/xiaomi01.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar02.png" class="win-img-left" />
+					  <p>恭喜<b>呆呆瓜。</b>获得</p>
+					  <h6>小米手机</h6>
+					  <div style="background:url(imgs/xiaomi4c.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar03.png" class="win-img-left" />
+					  <p>恭喜<b>李国荣</b>获得</p>
+					  <h6>苹果ipad</h6>
+					  <div style="background:url(imgs/pad.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar01.png" class="win-img-left" />
+					  <p>恭喜<b>sir_martino</b>获得</p>
+					  <h6>小米手环</h6>
+					  <div style="background:url(imgs/xiaomi01.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+					<li>
+					  <img src="imgs/avatar02.png" class="win-img-left" />
+					  <p>恭喜<b>呆呆瓜。</b>获得</p>
+					  <h6>小米手机</h6>
+					  <div style="background:url(imgs/xiaomi4c.png) no-repeat left center;background-size:100%;" class="win-img-right"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		/* 动态换算rem和px值  */
+	    var rem =20;
+	    window.onload = function () {
+	        changeW();
+	        window.addEventListener("resize", changeW, false);
+	        function changeW() {
+	            rem = 20 / 375 * document.documentElement.clientWidth;
+	            document.documentElement.style.fontSize = rem + "px";
+	        }
+	        window.addEventListener("resize", changeW, false);
+	    }
+	</script>
+</html>

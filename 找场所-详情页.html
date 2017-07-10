@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>找场所-详情页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	    <meta name="format-detection" content="telephone=yes"/>
+        <meta name="format-detection" content="email=no"/>
+        <link rel="stylesheet" href="css/active.css"  />
+        <link rel="stylesheet" href="css/swiper.css"  />
+	</head>
+	<body>
+		<div class="bg-05 g">
+			<div class="banner">
+				<div class="swiper-container">
+				  <div class="swiper-wrapper">
+					  <div class="swiper-slide banner-a"><img src="imgs/banner-aa.png"/></div>
+					  <div class="swiper-slide"><img src="imgs/banner-aa.png"/></div>
+					  <div class="swiper-slide"><img src="imgs/banner-aa.png"/></div>
+				  </div>
+				  <div class="pagination">
+				  	<div></div>
+				  	<div></div>
+				  	<div></div>
+				  </div>
+				</div>
+			</div>
+			<div class="active-detail  line_bottom">
+				<div>
+					<p>游乐瑜伽：双人瑜伽体验课</p>
+					<p>645km</p>
+				</div>
+				<div class="word-second">
+					<div>2016-10-30</div>
+					<div class="star">
+						<img class="starfirst" src="imgs/pic-star02.png"/>
+						<img src="imgs/pic-star02.png"/>
+						<img src="imgs/pic-star01.png"/>
+						<img src="imgs/pic-star01.png"/>
+						<img src="imgs/pic-star01.png"/>
+					</div>
+				</div>				
+			</div>
+			<div class="mid-list">
+				<div class="mid-listall mid-list-line">
+					<img src="imgs/icon-bb.png"/>
+					<div>碧波路&nbsp;690&nbsp;号&nbsp;5&nbsp;楼</div>
+				</div>
+				<div class="mid-listall mid-list-line">
+					<img src="imgs/icon-cc.png"/>
+					<a href="tel:021-28488123"><div>021-28488123</div></a>
+				</div>
+			</div>
+			<img class="line-bb" src="imgs/line-bb.png"/>
+			<div class="word-top">
+				<img src="imgs/shu.png"/>
+				<span>商户信息</span>
+			</div>
+			<div class="word-mid">
+				<img src="imgs/icon-wifi.png"/>
+				<span>WIFI</span>
+			</div>
+			<div class="word-mid">
+				<img src="imgs/icon-water.png"/>
+				<span>淋浴</span>
+			</div>
+			<div class="word-bottom">器具比较齐全，单车，跑步机，乒乓球，羽毛球，一应俱全。不仅是瑜伽，还有攀岩，全方位的体验。10家分店……</div>
+			<img class="line-bb" src="imgs/line-bb.png"/>
+			<div class="word-top">
+				<img src="imgs/shu.png"/>
+				<span>商户信息</span>
+			</div>
+			<div class="talkall">
+				<div class="talk">
+		    		<img src="imgs/avatar02.png"/>
+		    		<div>
+		    			<p>千与千寻</p>
+		    			<p>2016-10-03</p>
+		    			<span>环境非常好，设施齐全，健身氛围不错。</span>
+		    		</div>
+		    	</div>
+		    	<div class="talk talk2">
+		    		<img src="imgs/avatar02.png"/>
+		    		<div>
+		    			<p>千与千寻</p>
+		    			<p>2016-10-03</p>
+		    			<span>环境非常好，设施齐全，健身氛围不错。</span>
+		    		</div>
+		    		<img class="line-bb2" src="imgs/line-bb.png"/>
+		    		<div>
+		    			<p>.作者回复</p>
+		    			<p>2016-10-03</p>
+		    			<span>谢谢支持</span>
+		    		</div>
+		    	</div>
+		    	<div class="talk">
+		    		<img src="imgs/avatar02.png"/>
+		    		<div>
+		    			<p>千与千寻</p>
+		    			<p>2016-10-03</p>
+		    			<span>环境非常好，设施齐全，健身氛围不错。</span>
+		    		</div>
+		    	</div>
+	    	</div>
+	    	<div style="float: left;width: 100%;">
+		    	<input class="input_a" placeholder="我也来说点什么吧！" type="text" />
+				<div class="send">发送</div>
+		    </div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/lib/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/search.js" ></script>
+	<script type="text/javascript" src="js/lib/swiper.min.js" ></script>
+	<script type="text/javascript">
+//	 banner设置
+	var mySwiper = new Swiper('.swiper-container',{
+	pagination : '.pagination',
+	paginationType : 'fraction',
+	});
+//点击发送按钮  发送评论
+ 	$(".send").on("click",function(){
+ 		var _val = $(".input_a").val();//用户输入的评论内容
+ 		if(_val!=""){
+ 			var _src = "imgs/avatar02.png";//头像地址
+	 		var _name= "我是新增的";//用户昵称
+	 		var _time = "刚刚";//时间
+	 		var str = '<div class="talk">';
+		    	str	+='<img src="'+_src+'" alt="" />';
+		    	str	+='<div><p>'+_name+'</p>';
+		    	str	+='<p>'+_val+'</p>';
+		    	str	+='<span>'+_time+'</span>';    //【重要】 教练的回复，拼接到此处。			
+		    	str	+='</div>';
+		    $(".talkall").append(str);	
+		    //清空评论框
+		    $(".input_a").val("");
+ 		} 		
+ 	})	
+	</script>
+</html>

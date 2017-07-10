@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>招聘信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	    <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="email=no"/>
+        <link rel="stylesheet" href="css/active.css"  />
+        <link rel="stylesheet" href="css/swiper.css"  />
+	</head>
+	<body style="background: #122938;">
+		<div class="changsuo_top">
+			<div class="top-left">
+				<span>区域</span>
+				<img class="arrow01" src="imgs/icon-arrow01.png"/>
+				<img class="arrow02" src="imgs/icon-arrow02.png"/>
+			</div>
+			<div class="top-right">
+				<span>排序</span>
+				<img class="arrow01" src="imgs/icon-arrow01.png"/>
+				<img class="arrow02" src="imgs/icon-arrow02.png"/>
+			</div>
+		</div>
+		<div class="all-list quyu-list" >
+			<div>全上海</div>
+			<div>浦东新区</div>
+			<div>普陀区</div>
+			<div>徐汇区</div>
+			<div>普陀区</div>
+		</div>
+		<div class="all-list paixu-list">
+			<div>智能排序</div>
+			<div>最新发布</div>
+			<div>工资高到低</div>
+		</div>
+		<div class="person-list">
+			<img src="imgs/picture01.png"/>
+			<div>
+				<p>健身教练主管</p>
+				<p>浦东新区&nbsp;1-3年&nbsp;大专</p>
+				<p>普陀区&nbsp;&nbsp;656km</p>
+			</div>
+			<div>10K</div>
+		</div>
+		<div class="person-list">
+			<img src="imgs/picture02.png"/>
+			<div>
+				<p>健身教练主管</p>
+				<p>浦东新区&nbsp;1-3年&nbsp;大专</p>
+				<p>普陀区&nbsp;&nbsp;656km</p>
+			</div>
+			<div>10K</div>
+		</div>
+		<div class="person-list">
+			<img src="imgs/picture03.png"/>
+			<div>
+				<p>健身教练主管</p>
+				<p>浦东新区&nbsp;1-3年&nbsp;大专</p>
+				<p>普陀区&nbsp;&nbsp;656km</p>
+			</div>
+			<div>10K</div>
+		</div>
+		<div class="person-list">
+			<img src="imgs/picture04.png"/>
+			<div>
+				<p>健身教练主管</p>
+				<p>浦东新区&nbsp;1-3年&nbsp;大专</p>
+				<p>普陀区&nbsp;&nbsp;656km</p>
+			</div>
+			<div>10K</div>
+		</div>
+		<div class="person-list">
+			<img src="imgs/picture05.png"/>
+			<div>
+				<p>健身教练主管</p>
+				<p>浦东新区&nbsp;1-3年&nbsp;大专</p>
+				<p>普陀区&nbsp;&nbsp;656km</p>
+			</div>
+			<div>10K</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/lib/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/search.js" ></script>
+	<script type="text/javascript" src="js/lib/swiper.min.js" ></script>
+	<script type="text/javascript">
+		$(".changsuo_top>div").click(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			return false;
+		});
+		$(".top-left").click(function(){
+			$(".top-left>.arrow01").hide();
+			$(".top-left>.arrow02").show();
+			$(".quyu-list").show();
+			$(".paixu-list").hide();
+			return false;
+		});
+		$(".top-right").click(function(){
+			$(".top-right>.arrow01").hide();
+			$(".top-right>.arrow02").show();
+			$(".quyu-list").hide();
+			$(".paixu-list").show();
+			return false;
+		});
+		
+		$(".all-list>div").click(function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			return false;
+		});
+		$(".quyu-list>div").click(function(){
+			var str = $(this).html();
+			$(".top-left>span").html(str);
+		});
+		$(".paixu-list>div").click(function(){
+			var str = $(this).html();
+			$(".top-right>span").html(str);
+		});
+		$("body").click(function(){
+			$(".all-list").hide();
+			$(".top-left>.arrow01").show();
+			$(".top-left>.arrow02").hide();
+			$(".top-right>.arrow01").show();
+			$(".top-right>.arrow02").hide();
+		});
+	</script>
+</html>

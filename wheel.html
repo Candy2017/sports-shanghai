@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type">
+   <meta content="text/html; charset=utf-8">
+   <meta charset="utf-8">
+   <title>教练秀</title>
+   <meta name="viewport"
+         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="format-detection" content="telephone=no">
+   <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/allcss.css"  />
+   <link rel="stylesheet" type="text/css" href="css/wheel.css"/>
+  
+</head>
+<body>
+   <div class="wheel-box">
+   <div class="wheel-box-bg"></div>	
+   <div class="wheelcontain" id="wheelbox" style="margin-top:100px;">
+       <div class="rotate">
+          <div class="rotate-cont">
+             <img src="imgs/circle-4.png" alt="" width="100%">
+             <div class="rotate-arrow">
+                <table>
+                   <tr>
+                      <td><img src="imgs/point02.png" class="arrow-img" alt="" style="-webkit-transform: rotate(90deg);"></td>
+                   </tr>
+                </table>
+             </div>
+             <div class="rotate-arrow-text">
+                <table>
+                   <tr>
+                      <td><img src="imgs/circle-4.png" alt=""></td>
+                   </tr>
+                </table>
+             </div>
+             <!--  -->
+          </div>
+      </div>
+  </div>    
+  <div class="wheel-footer">
+				<div>
+					<div class="wheel-footer-left"></div>
+					<h4>活动规则</h4>
+					<div class="wheel-footer-right"></div>
+				</div>
+				<p>1.本活动由上海体育职业技能发展中心举办，不会以任何形式收取任何费用；</p>
+				<p class="wheel-p">2.中奖用户将在3个工作日内得到工作人员电话联系，请务必填写有效联系方式等相关信息；</p>
+				<p>3.放弃本次活动奖品领取机会，不影响下周再次抽奖。</p>
+			</div>
+		</div>
+		<!--弹出框  中奖信息-->
+		<div class="bground"></div>
+		<!--谢谢参与-->
+		<div class="out01">
+			<div class="out01-top">
+				<span></span>
+				<h5>没有抽中,谢谢参与~</h5>
+				<img src="imgs/winbox01.png" alt="" />
+			</div>
+			<div class="out01-bottom">
+				<p>不要灰心，由于你把活动分享到朋友圈，所以还有一次抽奖机会！</p>
+				<div>朕知道了</div>
+			</div>
+		</div>
+		<!--再接再厉-->
+		<div class="out03">
+			<div class="out01-top">
+				<span></span>
+				<h5>送你一个么么哒,再接再厉~</h5>
+				<img src="imgs/winbox02.png" alt="" />
+			</div>
+			<div class="out01-bottom">
+				<p>你也可以分享到朋友圈，获得抽奖机会哦！</p>
+				<div>朕知道了</div>
+			</div>
+		</div>
+		<!--中奖了-->
+		<div class="out02">
+			<div class="out02-top">
+				<span></span>
+				<h5>恭喜您，中奖啦</h5>
+				<div style="background:url(imgs/xiaomi01.png) no-repeat center center;background-size:80%;" class="out02-top-img"></div>
+			    <p>您抽中一个运动小米手环</p>
+			</div>
+			<div class="out02-bottom">
+				<p>请填写以下信息，方便奖品发放。</p>
+				<div class="out02-bottom-inp1"><input type="text" placeholder="请输入您的姓名"/></div>
+				<div class="out02-bottom-inp2"><input type="text" placeholder="请输入您的手机号码"/></div>
+				<div class="out02-bottom-inp3">确定</div>
+			</div>
+		</div>
+		
+		<!-- 不可重复抽奖  弹窗-->
+		<div class="noreplay-model01" >
+	    	<img src="imgs/pic_window1.png" alt="" />
+	    	<div class="word" style="margin-top: -9.5rem;">
+				<p class="word_01 a">您已抽奖<br/>不可重复抽奖</p>
+			</div>
+			<img class="win-button1" src="imgs/icon-66.png" alt="" />
+	    </div>
+	</body>
+  <script src="js/lib/jquery.min.js"></script>
+  <script type="text/javascript">
+		/* 动态换算rem和px值  */
+	    var rem =20;
+	    window.onload = function () {
+	        changeW();
+	        window.addEventListener("resize", changeW, false);
+	        function changeW() {
+	            rem = 20 / 375 * document.documentElement.clientWidth;
+	            document.documentElement.style.fontSize = rem + "px";
+	        }
+	        window.addEventListener("resize", changeW, false);
+	    }
+	</script>
+  <script src="js/wheel.js"></script>
+
+</html>

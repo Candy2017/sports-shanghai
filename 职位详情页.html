@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>职位详情页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	    <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="email=no"/>
+        <link rel="stylesheet" href="css/active.css"  />
+	</head>
+	<body>
+		<div class="bg-05">
+			<div class="zhiwei-top">
+				<ul>
+					<li>健身教练主管</li>
+					<li>5K~10K</li>
+					<li>上海艾艺信息科技有限公司</li>
+				</ul>
+				<img src="imgs/picture01.png"/>
+			</div>
+			<div class="zhiwei-mid li-a">
+				<ul>
+					<li class="ul-li-top">职位描述</li>
+					<div class="ul-li-all ">
+						<li>1、负责会员健身器材的知道与训练；</li>
+						<li>2、负责私教会员的授课；</li>
+						<li>3、能够组织、推广扩展训练项目；</li>
+						<li>4、为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。</li>
+					</div>	
+				</ul>
+				<img class="jiantou-down" src="imgs/jiantou.png"/>
+				<img class="jiantou-up" src="imgs/jiantou-top.png"/>
+			</div>
+			<div class="zhiwei-mid li-b">
+				<ul>
+					<li class="ul-li-top">任职资格</li>
+					<div class="ul-li-all">
+						<li>1、负责会员健身器材的知道与训练；</li>
+						<li>2、负责私教会员的授课；</li>
+						<li>3、能够组织、推广扩展训练项目；</li>
+						<li>4、为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。</li>
+						<li>5、为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。</li>
+						<li>6、为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。</li>
+					</div>
+				</ul>
+				<img class="jiantou-down" src="imgs/jiantou.png"/>
+				<img class="jiantou-up" src="imgs/jiantou-top.png"/>	
+			</div>
+			<div class="zhiwei-mid">
+				<ul>
+					<li class="ul-li-top">联系方式</li>
+					<div class="ul-li-all">
+						<a href="tel:137515151351"><li>137515151351&nbsp;&nbsp;刘女士</li></a>    
+						<li>地址：碧波路690号</li>
+					</div>	
+				</ul>
+			</div>
+			<div class="zhiwei-mid mid-other">
+				<ul>
+					<li class="ul-li-top">公司介绍</li>
+					<div class="ul-li-all">
+						<li>为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。为会员制定专业的健身计划，协助会员达成健身目标，销售专业的健身课程。</li>
+						<li>让我们一起为生命加油！！！</li>
+					</div>
+				</ul>
+			</div>
+			<div class="footer">
+				<div>
+					<img src="imgs/guanneihuanj.png"/>
+				</div>
+				<div>
+					<img src="imgs/huiyuanxiaoguo.png"/>	
+				</div>
+				<div>
+					<img src="imgs/jiaolianfengcai.png"/>	
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/lib/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/search.js" ></script>
+	<script type="text/javascript" src="js/lib/swiper.min.js" ></script>
+	<script type="text/javascript">
+		var a =$(".li-a>ul>.ul-li-all>li").length;
+		var b =$(".li-b>ul>.ul-li-all>li").length;
+		for(i=0; i<a; i++) { 
+			if (a<=4){ 
+				$('.li-a>.jiantou-down').css('display','none');
+			}else 
+				$('.li-a>.jiantou-down').css('display','block');
+		}
+		for(i=0; i<b; i++) { 
+			if (b<=4){ 
+				$('.li-b>.jiantou-down').css('display','none');
+			}else 
+				$('.li-b>.jiantou-down').css('display','block');
+		}
+		$(".jiantou-down").click(function(){
+			$(this).css('display','none');
+			$(this).parent().find(".jiantou-up").css('display','block');
+			$(this).parent().find("li:nth-child(n+5)").css('display','block')
+		});
+		$(".jiantou-up").click(function(){
+			$(this).css('display','none');
+			$(this).parent().find(".jiantou-down").css('display','block');	
+			$(this).parent().find("li:nth-child(n+5)").css('display','none')
+		});
+	</script>
+</html>
